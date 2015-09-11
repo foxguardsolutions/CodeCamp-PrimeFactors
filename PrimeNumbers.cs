@@ -21,7 +21,7 @@ namespace PrimeFactors
 
         public static bool IsPrime(int factor)
         {
-            return Enumerable.Range(_firstPrime, factor - _firstPrime).Where(x => factor % x == 0).ToArray().Length == 0;
+            return Enumerable.Range(_firstPrime, (int)Math.Floor(Math.Sqrt(factor)) - _firstPrime + 1).Where(x => factor % x == 0).ToArray().Length == 0;
         }
 
         public static int ParseArguments(string[] args)

@@ -71,6 +71,8 @@
     <None Include="PrimeFactors.ruleset" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EratosthenesSieve.cs" />
+    <Compile Include="EratosthenesSieveTests.cs" />
     <Compile Include="PrimeNumbersTests.cs" />
     <Compile Include="PrimeNumbers.cs" />
   </ItemGroup>
