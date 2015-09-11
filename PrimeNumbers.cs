@@ -34,7 +34,7 @@ namespace PrimeFactors
             int number = 0;
             if (!int.TryParse(args[0], out number))
             {
-                Console.WriteLine("{0} is not a valid integer!", args[0]);
+                throw new ArgumentException(string.Format("{0} is not a valid number!", args[0]));
             }
 
             return number;
@@ -51,7 +51,7 @@ namespace PrimeFactors
 
         public static void PrintUsage()
         {
-            Console.WriteLine("Usage: {0} <uint>", AppDomain.CurrentDomain.FriendlyName);
+            throw new ArgumentException(string.Format("Usage: {0} <uint>", AppDomain.CurrentDomain.FriendlyName));
         }
     }
 }
