@@ -12,9 +12,9 @@ namespace PrimeFactors
         [TestCase(4, false)]
         [TestCase(2, true)]
         [TestCase(10, false)]
-        public void IsPrimeReturnsTrueOnlyIfInputIsPrime(int number, bool prime)
+        public void IsPrimeReturnsTrueOnlyIfInputIsPrime(int number, bool isPrime)
         {
-            Assert.AreEqual(prime, PrimeNumbers.IsPrime(number));
+            Assert.AreEqual(isPrime, PrimeNumbers.IsPrime(number));
         }
 
         [Test]

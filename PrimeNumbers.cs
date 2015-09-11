@@ -6,20 +6,22 @@ namespace PrimeFactors
 {
     public class PrimeNumbers
     {
+        private const int _firstPrime = 2;
+
         public static void Main(string[] args)
         {
-            var n = ParseArguments(args);
-            PrintFactors(DoFactor(n), n);
+            var number = ParseArguments(args);
+            PrintFactors(DoFactor(number), number);
         }
 
-        public static List<int> DoFactor(int n)
+        public static List<int> DoFactor(int number)
         {
-            return Enumerable.Range(2, n - 2 + 1).Where(x => n % x == 0).Where(IsPrime).ToList();
+            return Enumerable.Range(_firstPrime, number - _firstPrime + 1).Where(x => number % x == 0).Where(IsPrime).ToList();
         }
 
         public static bool IsPrime(int factor)
         {
-            return Enumerable.Range(2, factor - 2).Where(x => factor % x == 0).ToArray().Length == 0;
+            return Enumerable.Range(_firstPrime, factor - _firstPrime).Where(x => factor % x == 0).ToArray().Length == 0;
         }
 
         public static int ParseArguments(string[] args)
