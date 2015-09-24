@@ -17,20 +17,17 @@ namespace PrimeFactors.Src
 
                 number /= 2;
             }
+            else if (number % currentPrimeNumber == 0)
+            {
+                primeFactors.Add(currentPrimeNumber);
+
+                number /= currentPrimeNumber;
+
+                currentPrimeNumber = FIRST_ODD_PRIME;
+            }
             else
             {
-                if (number % currentPrimeNumber == 0)
-                {
-                    primeFactors.Add(currentPrimeNumber);
-
-                    number /= currentPrimeNumber;
-
-                    currentPrimeNumber = FIRST_ODD_PRIME;
-                }
-                else
-                {
-                    currentPrimeNumber = NextPrimeNumberAfter3(currentPrimeNumber);
-                }
+                currentPrimeNumber = NextPrimeNumberAfter3(currentPrimeNumber);
             }
 
             if (IsPrime(number))
