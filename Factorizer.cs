@@ -11,7 +11,17 @@ namespace PrimeFactors.Src
 
         public void FindPrimeFactorsFor(int number)
         {
-            if (number % 2 == 0)
+            if (number < 2)
+            {
+                return;
+            }
+            else if (IsPrime(number))
+            {
+                primeFactors.Add(number);
+
+                return;
+            }
+            else if (number % 2 == 0)
             {
                 primeFactors.Add(2);
 
@@ -30,16 +40,6 @@ namespace PrimeFactors.Src
                 currentPrimeNumber = NextPrimeNumberAfter3(currentPrimeNumber);
             }
 
-            if (IsPrime(number))
-            {
-                if (number != 1)
-                {
-                    primeFactors.Add(number);
-                }
-
-                return;
-            }
-
             FindPrimeFactorsFor(number);
         }
 
@@ -52,6 +52,11 @@ namespace PrimeFactors.Src
 
         public int NextPrimeNumberAfter3(int currentPrimeNumber)
         {
+            if (currentPrimeNumber < 3)
+            {
+                return 3;
+            }
+
             int nextPrime = currentPrimeNumber + 2;
 
             while (!IsPrime(nextPrime))
@@ -64,6 +69,11 @@ namespace PrimeFactors.Src
 
         public bool IsPrime(int number)
         {
+            if (number <= 1)
+            {
+                return false;
+            }
+
             for (int i = 2; i < number; i++)
             {
                 if (number % i == 0)

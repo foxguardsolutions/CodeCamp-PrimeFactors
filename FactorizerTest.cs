@@ -9,6 +9,7 @@ namespace PrimeFactors.Test
     [TestFixture]
     public class FactorizerTest
     {
+        [TestCase(1, new int[] {})]
         [TestCase(2, new int[] { 2 })]
         [TestCase(3, new int[] { 3 })]
         [TestCase(22, new int[] { 2, 11 })]
@@ -29,6 +30,7 @@ namespace PrimeFactors.Test
             Assert.AreEqual(primeFactors, primeFactorsArray);
         }
 
+        [TestCase(1, 3)]
         [TestCase(3, 5)]
         [TestCase(5, 7)]
         [TestCase(7, 11)]
@@ -43,6 +45,7 @@ namespace PrimeFactors.Test
             Assert.AreEqual(nextPrime, nextPrimeResult);
         }
 
+        [TestCase(1, false)]
         [TestCase(2, true)]
         [TestCase(3, true)]
         [TestCase(4, false)]
