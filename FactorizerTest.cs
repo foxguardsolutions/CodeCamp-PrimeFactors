@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using PrimeFactors.Src;
 
 namespace PrimeFactors.Test
@@ -9,7 +8,7 @@ namespace PrimeFactors.Test
     [TestFixture]
     public class FactorizerTest
     {
-        [TestCase(1, new int[] {})]
+        [TestCase(1, new int[] { })]
         [TestCase(2, new int[] { 2 })]
         [TestCase(3, new int[] { 3 })]
         [TestCase(22, new int[] { 2, 11 })]
@@ -30,17 +29,17 @@ namespace PrimeFactors.Test
             Assert.AreEqual(primeFactors, primeFactorsArray);
         }
 
-        [TestCase(1, 3)]
+        [TestCase(1, 2)]
         [TestCase(3, 5)]
         [TestCase(5, 7)]
         [TestCase(7, 11)]
         [TestCase(11, 13)]
         [TestCase(823, 827)]
-        public void TestNextPrimeNumberAfter3(int prime, int nextPrime)
+        public void TestFindNextPrimeNumber(int prime, int nextPrime)
         {
             Factorizer factorizer = new Factorizer();
 
-            int nextPrimeResult = factorizer.NextPrimeNumberAfter3(prime);
+            int nextPrimeResult = factorizer.FindNextPrimeNumber(prime);
 
             Assert.AreEqual(nextPrime, nextPrimeResult);
         }

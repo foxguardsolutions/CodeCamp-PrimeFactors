@@ -4,8 +4,8 @@ namespace PrimeFactors.Src
 {
     public class Factorizer
     {
-        private const int FIRST_ODD_PRIME = 3;
-        private int currentPrimeNumber = FIRST_ODD_PRIME;
+        private const int FIRST_PRIME_NUMBER = 2;
+        private int currentPrimeNumber = FIRST_PRIME_NUMBER;
 
         private List<int> primeFactors = new List<int>();
 
@@ -21,26 +21,27 @@ namespace PrimeFactors.Src
 
                 return;
             }
-            else if (number % 2 == 0)
-            {
-                primeFactors.Add(2);
-
-                number /= 2;
-            }
             else if (number % currentPrimeNumber == 0)
             {
-                primeFactors.Add(currentPrimeNumber);
-
-                number /= currentPrimeNumber;
-
-                currentPrimeNumber = FIRST_ODD_PRIME;
+                number = BeginSearchForNextPrime(number);
             }
             else
             {
-                currentPrimeNumber = NextPrimeNumberAfter3(currentPrimeNumber);
+                currentPrimeNumber = FindNextPrimeNumber(currentPrimeNumber);
             }
 
             FindPrimeFactorsFor(number);
+        }
+
+        private int BeginSearchForNextPrime(int number)
+        {
+            primeFactors.Add(currentPrimeNumber);
+
+            number /= currentPrimeNumber;
+
+            currentPrimeNumber = FIRST_PRIME_NUMBER;
+
+            return number;
         }
 
         public List<int> PrimeFactors()
@@ -50,21 +51,11 @@ namespace PrimeFactors.Src
             return primeFactors;
         }
 
-        public int NextPrimeNumberAfter3(int currentPrimeNumber)
+        public int FindNextPrimeNumber(int currentPrimeNumber)
         {
-            if (currentPrimeNumber < 3)
-            {
-                return 3;
-            }
+            while (!IsPrime(++currentPrimeNumber)) { }
 
-            int nextPrime = currentPrimeNumber + 2;
-
-            while (!IsPrime(nextPrime))
-            {
-                nextPrime += 2;
-            }
-
-            return nextPrime;
+            return currentPrimeNumber;
         }
 
         public bool IsPrime(int number)
