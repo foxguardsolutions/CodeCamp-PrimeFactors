@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace PrimeFactors {
     public class Finder {
         private const int LOWESTPRIME = 2;
-
-        internal void Start(string arg) {
-            throw new NotImplementedException();
-        }
 
         public List<int> FindFactors(int naturalNumber) {
             var factors = new List<int>();

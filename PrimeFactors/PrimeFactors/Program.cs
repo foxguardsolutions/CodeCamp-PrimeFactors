@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PrimeFactors {
+﻿namespace PrimeFactors {
     class Program {
         static void Main(string[] args) {
-            Finder factorFinder = new Finder();
+            var factorReporter = new Reporter();
             foreach (string arg in args) {
-                factorFinder.Start(arg);
+                factorReporter.Report(arg);
             }
         }
     }
