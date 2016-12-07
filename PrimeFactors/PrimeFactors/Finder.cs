@@ -15,7 +15,7 @@ namespace PrimeFactors {
             if (naturalNumber < 2) {
                 return factors;
             }
-            factors.Add(2);
+            factors.Add(naturalNumber);
             return factors;
         }
     }

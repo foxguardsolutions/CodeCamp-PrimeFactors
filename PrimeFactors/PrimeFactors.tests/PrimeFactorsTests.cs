@@ -8,27 +8,22 @@ using NUnit.Framework;
 namespace PrimeFactors.tests
 {
     [TestFixture]
-    public class PrimeFactorsTests
-    {
-        [Test]
-        public void FindFactors_GivenOne_ReturnsEmptyList() {
+    public class PrimeFactorsTests {
+        [TestCaseSource(typeof(TestCaseFactory), nameof(TestCaseFactory.FindFactorsTestCases))]
+        public void FindFactors_ReturnsList(int naturalNumber, int[] resultArray) {
             var factorFinder = new Finder();
-            var emptyList = new List<int>();
-            Assert.That(factorFinder.FindFactors(1), Is.EqualTo(emptyList));
-        }
-
-        [TestCaseSource(typeof(TestCaseFactory), nameof(TestCaseFactory.SingleMemberListCandidateCases))]
-        public void FindFactors_ReturnsSingleMemberList(int naturalNumber) {
-            var factorFinder = new Finder();
-            var singleMemberList = new List<int>(new int[] { naturalNumber });
-            Assert.That(factorFinder.FindFactors(naturalNumber), Is.EqualTo(singleMemberList));
+            var resultList = new List<int>(resultArray);
+            Assert.That(factorFinder.FindFactors(naturalNumber), Is.EqualTo(resultList));
         }
     }
     public class TestCaseFactory {
-        public static IEnumerable<TestCaseData> SingleMemberListCandidateCases {
+        public static IEnumerable<TestCaseData> FindFactorsTestCases {
             get {
-                yield return new TestCaseData(2);
-                yield return new TestCaseData(3);
+                yield return new TestCaseData(1, new int[0]);
+                yield return new TestCaseData(2, new int[] { 2 });
+                yield return new TestCaseData(3, new int[] { 3 });
+                yield return new TestCaseData(4, new int[] { 2, 2 });
+
             }
         }
     }
