@@ -12,6 +12,10 @@ namespace PrimeFactors {
 
         public List<int> FindFactors(int naturalNumber) {
             var factors = new List<int>();
+            if (naturalNumber < 2) {
+                return factors;
+            }
+            factors.Add(2);
             return factors;
         }
     }

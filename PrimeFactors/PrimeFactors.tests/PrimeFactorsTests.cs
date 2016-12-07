@@ -28,6 +28,7 @@ namespace PrimeFactors.tests
         public static IEnumerable<TestCaseData> SingleMemberListCandidateCases {
             get {
                 yield return new TestCaseData(2);
+                yield return new TestCaseData(3);
             }
         }
     }
