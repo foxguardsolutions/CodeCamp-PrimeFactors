@@ -6,26 +6,33 @@ using System.Threading.Tasks;
 
 namespace PrimeFactors {
     public class Finder {
+        private const int LOWESTPRIME = 2;
         internal void Start(string arg) {
             throw new NotImplementedException();
         }
 
         public List<int> FindFactors(int naturalNumber) {
             var factors = new List<int>();
-            if (naturalNumber < 2) {
+            if (naturalNumber < LOWESTPRIME) {
                 return factors;
             }
-            while (naturalNumber % 2 == 0) {
-                naturalNumber = DivideOut(naturalNumber, 2, factors);
-            }
-            if (naturalNumber < 2) {
+            naturalNumber = DivideOutAll(naturalNumber, 2, factors);
+            naturalNumber = DivideOutAll(naturalNumber, 3, factors);
+            if (naturalNumber < LOWESTPRIME) {
                 return factors;
             }
             factors.Add(naturalNumber);
             return factors;
         }
 
-        private int DivideOut(int naturalNumber, int divisor, List<int> factors) {
+        private int DivideOutAll(int naturalNumber, int divisor, List<int> factors) {
+            while (naturalNumber % divisor == 0) {
+                naturalNumber = DivideOutOnce(naturalNumber, divisor, factors);
+            }
+            return naturalNumber;
+        }
+
+        private int DivideOutOnce(int naturalNumber, int divisor, List<int> factors) {
             factors.Add(divisor);
             return naturalNumber / divisor;
         }

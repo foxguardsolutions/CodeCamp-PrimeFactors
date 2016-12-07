@@ -28,6 +28,7 @@ namespace PrimeFactors.tests
                 yield return new TestCaseData(7, new int[] { 7 });
                 yield return new TestCaseData(8, new int[] { 2, 2, 2 });
                 yield return new TestCaseData(9, new int[] { 3, 3 });
+                yield return new TestCaseData(25, new int[] { 5, 5 });
             }
         }
     }
