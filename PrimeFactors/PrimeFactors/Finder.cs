@@ -7,21 +7,16 @@ using System.Threading.Tasks;
 namespace PrimeFactors {
     public class Finder {
         private const int LOWESTPRIME = 2;
+
         internal void Start(string arg) {
             throw new NotImplementedException();
         }
 
         public List<int> FindFactors(int naturalNumber) {
             var factors = new List<int>();
-            if (naturalNumber < LOWESTPRIME) {
-                return factors;
+            for (int divisor = LOWESTPRIME; divisor <= naturalNumber; divisor++) {
+                naturalNumber = DivideOutAll(naturalNumber, divisor, factors);
             }
-            naturalNumber = DivideOutAll(naturalNumber, 2, factors);
-            naturalNumber = DivideOutAll(naturalNumber, 3, factors);
-            if (naturalNumber < LOWESTPRIME) {
-                return factors;
-            }
-            factors.Add(naturalNumber);
             return factors;
         }
 
