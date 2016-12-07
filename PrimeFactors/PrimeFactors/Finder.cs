@@ -14,8 +14,10 @@ namespace PrimeFactors {
             var factors = new List<int>();
             if (naturalNumber < 2) {
                 return factors;
-            }            
-            naturalNumber = DivideOut(naturalNumber, 2, factors);
+            }
+            while (naturalNumber % 2 == 0) {
+                naturalNumber = DivideOut(naturalNumber, 2, factors);
+            }
             if (naturalNumber < 2) {
                 return factors;
             }
@@ -24,11 +26,8 @@ namespace PrimeFactors {
         }
 
         private int DivideOut(int naturalNumber, int divisor, List<int> factors) {
-            if (naturalNumber % divisor == 0) {
-                factors.Add(divisor);
-                naturalNumber /= divisor;
-            }
-            return naturalNumber;
+            factors.Add(divisor);
+            return naturalNumber / divisor;
         }
     }
 }
