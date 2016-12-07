@@ -19,6 +19,8 @@ namespace PrimeFactors.tests
     public class TestCaseFactory {
         public static IEnumerable<TestCaseData> FindFactorsTestCases {
             get {
+                yield return new TestCaseData(-1, new int[0]);
+                yield return new TestCaseData(0, new int[0]);
                 yield return new TestCaseData(1, new int[0]);
                 yield return new TestCaseData(2, new int[] { 2 });
                 yield return new TestCaseData(3, new int[] { 3 });
