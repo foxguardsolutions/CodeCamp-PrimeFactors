@@ -3,8 +3,8 @@ using System.Linq;
 
 namespace PrimeFactors {
     public class Reporter {
-        public const string SUCCESSREPORT = "Prime factorization of {0}:\n{1}";
-        public const string FAILREPORT = "Could not parse \"{0}\" to an int.";
+        private const string SUCCESSREPORT = "Prime factorization of {0}:\n{1}";
+        private const string FAILREPORT = "Could not parse \"{0}\" to an int.";
 
         public void Report(string integerCandidate) {
             int naturalNumber;
